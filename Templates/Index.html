@@ -1,0 +1,31 @@
+<html>
+	<head>
+		<title>Weater Stats</title>
+	</head>
+	<body>
+		<h1>Weather Stats!</h1>
+		<br>
+		<form method = "POST">
+			<label>Enter location coordinates</label>
+			<br>
+			<br>
+			<input name="latitude" placeholder="Latitude">
+			<input name="longitude" placeholder="Longitude">
+			<input type='submit'>
+		</form>
+		{% if weather %}
+		<center>
+			<table>
+				<tr><td colspan="2"><img src = "{{weather.data.condition.icon}}"></td></tr>
+				<tr><td>Place</td><td>{{weather.data.name}}</td></tr>
+				<tr><td>Region</td><td>{{weather.data.region}}</td></tr>
+				<tr><td>Country</td><td>{{weather.data.country}}</td></tr>
+				<tr><td>Condition</td><td>{{weather.data.condition.text}}</td></tr>
+				<tr><td>Temperature</td><td>{{weather.data.temp_c}}</td></tr>
+
+			</table>
+		</center>
+		{% endif %}
+		<p>You have {{count}} visitors</p>
+	</body>
+</html>
